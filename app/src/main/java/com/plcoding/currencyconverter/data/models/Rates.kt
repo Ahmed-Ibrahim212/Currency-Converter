@@ -70,4 +70,5 @@ data class Rates(
     val uSD: Double,
     @SerializedName("ZAR")
     val zAR: Double
+
 )

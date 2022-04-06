@@ -6,10 +6,12 @@ import androidx.lifecycle.viewModelScope
 import com.plcoding.currencyconverter.data.models.Rates
 import com.plcoding.currencyconverter.util.DispatcherProvider
 import com.plcoding.currencyconverter.util.Resource
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlin.math.round
+
 
 class MainViewModel @ViewModelInject constructor(
     private val repository: MainRepository,
@@ -57,7 +59,8 @@ class MainViewModel @ViewModelInject constructor(
         }
     }
 
-    private fun getRateForCurrency(currency: String, rates: Rates) = when (currency) {
+    private fun getRateForCurrency(currency: String, rates: Rates) =
+        when (currency) {
         "CAD" -> rates.cAD
         "HKD" -> rates.hKD
         "ISK" -> rates.iSK
@@ -93,3 +96,4 @@ class MainViewModel @ViewModelInject constructor(
         else -> null
     }
 }
+
